@@ -1,4 +1,7 @@
 from tkinter import *
+from tkinter import messagebox
+
+from Student import Student
 
 windows = Tk()
 windows.title('registration form !')
@@ -7,13 +10,17 @@ windows.resizable(0, 0)
 
 
 def alert():
-    alert_view = Tk()
-    alert_view.title('confirm Alert !')
-    alert_view.geometry('300x100+200+10')
-    alert_view.resizable(0, 0)
+    messagebox.showinfo('Confirmation', '                                   saved !                            ')
+    # alert_view = Tk()
+    # alert_view.title('confirm Alert !')
+    # alert_view.geometry('300x100+200+10')
+    # alert_view.resizable(0, 0)
 
 
 def printAll():
+    student = Student()
+    student.name = 'kamal'
+    print(student.name)
     alert()
 
 
@@ -101,7 +108,7 @@ check_2 = Checkbutton(windows, text='show', bg='white')
 check_2.place(x=450, y=310)
 
 back_button = Button(windows, text='back <-', width=6, borderwidth=5, height=1, bg='#66ff99', fg='blue', cursor='hand2',
-                     border=2, font=('#ff3300', 8, 'bold'))
+                     border=2, font=('#ff3300', 8, 'bold'),command=printAll)
 back_button.place(x=30, y=600)
 
 windows.mainloop()

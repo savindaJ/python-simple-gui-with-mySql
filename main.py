@@ -38,31 +38,31 @@ OM = StringVar()
 country = ['srilanka', 'india', 'japan', 'koria']
 OM.set('Select Country')
 
-frame = Frame(windows, width='610', height='640', bg='#0000b3', bd=8)
+frame = Frame(windows, width='610', height='640', bg='#4287f5', bd=8)
 frame.place(x=0, y=0)
 
-start_label = Label(frame, text='Registration Form !', fg='#ffffff', bg='#0000b3', font=('Calibre', 20, 'bold'))
+start_label = Label(frame, text='Registration Form !', fg='#ffffff', bg='#4287f5', font=('Calibre', 20, 'bold'))
 start_label.place(x=130, y=3)
 
-first_name = Label(frame, text='First_name :', fg='#ffffff', bg='#0000b3', font=('Calibre', 12, 'bold'))
+first_name = Label(frame, text='First_name :', fg='#ffffff', bg='#4287f5', font=('Calibre', 12, 'bold'))
 first_name.place(x=8, y=60)
 
 first_name_txt = Entry(windows, width=40, borderwidth=2)
 first_name_txt.place(x=200, y=70)
 
-last_name = Label(frame, text='Last_name :', fg='#ffffff', bg='#0000b3', font=('Calibre', 12, 'bold'))
+last_name = Label(frame, text='Last_name :', fg='#ffffff', bg='#4287f5', font=('Calibre', 12, 'bold'))
 last_name.place(x=8, y=100)
 
 last_name_txt = Entry(windows, width=40, borderwidth=2)
 last_name_txt.place(x=200, y=110)
 
-email = Label(frame, text='e-mail :', fg='#ffffff', bg='#0000b3', font=('Calibre', 12, 'bold'))
+email = Label(frame, text='e-mail :', fg='#ffffff', bg='#4287f5', font=('Calibre', 12, 'bold'))
 email.place(x=8, y=140)
 
 email_txt = Entry(windows, width=40, borderwidth=2)
 email_txt.place(x=200, y=150)
 
-gender = Label(frame, text='Gender :', fg='#ffffff', bg='#0000b3', font=('Calibre', 12, 'bold'))
+gender = Label(frame, text='Gender :', fg='#ffffff', bg='#4287f5', font=('Calibre', 12, 'bold'))
 gender.place(x=8, y=180)
 
 gender_radioButton = Radiobutton(windows, text='Male', variable=gender, value='Male', font='Tahoma 13 bold')
@@ -71,32 +71,32 @@ gender_radioButton.place(x=200, y=180)
 gender2_radioButton = Radiobutton(windows, text='Female', variable=gender, value='Female', font='Tahoma 13 bold')
 gender2_radioButton.place(x=350, y=180)
 
-countryP = Label(frame, text='country :', fg='#ffffff', bg='#0000b3', font=('Calibre', 12, 'bold'))
+countryP = Label(frame, text='country :', fg='#ffffff', bg='#4287f5', font=('Calibre', 12, 'bold'))
 countryP.place(x=8, y=220)
 
 country_dropdown = OptionMenu(windows, OM, *country)
 country_dropdown.place(x=200, y=230)
 country_dropdown.config(width=18, font=('Calibre', 13, 'bold'))
 
-username = Label(frame, text='User_name :', fg='#ffffff', bg='#0000b3', font=('Calibre', 12, 'bold'))
+username = Label(frame, text='User_name :', fg='#ffffff', bg='#4287f5', font=('Calibre', 12, 'bold'))
 username.place(x=8, y=270)
 
 username_txt = Entry(windows, width=40, borderwidth=2)
 username_txt.place(x=200, y=280)
 
-password = Label(frame, text='Password :', fg='#ffffff', bg='#0000b3', font=('Calibre', 12, 'bold'))
+password = Label(frame, text='Password :', fg='#ffffff', bg='#4287f5', font=('Calibre', 12, 'bold'))
 password.place(x=8, y=300)
 
 password_txt = Entry(windows, width=40, borderwidth=2)
 password_txt.place(x=200, y=310)
 
-confirm_password = Label(frame, text='confirm_password :', fg='#ffffff', bg='#0000b3', font=('Calibre', 12, 'bold'))
+confirm_password = Label(frame, text='confirm_password :', fg='#ffffff', bg='#4287f5', font=('Calibre', 12, 'bold'))
 confirm_password.place(x=8, y=330)
 
 confirm_password_txt = Entry(windows, width=40, borderwidth=2)
 confirm_password_txt.place(x=200, y=340)
 
-save_butt0n = Button(windows, text='Save', width=11, borderwidth=5, height=1, bg='#66ff99', fg='blue', cursor='hand2',
+save_butt0n = Button(windows, text='Save', width=11, borderwidth=5, height=1, bg='#4287f5', fg='blue', cursor='hand2',
                      border=2, font=('#ff3300', 16, 'bold'), command=printAll)
 save_butt0n.place(x=210, y=500)
 

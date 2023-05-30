@@ -6,6 +6,17 @@ windows.geometry('540x640+200+10')
 windows.resizable(0, 0)
 
 
+def alert():
+    alert_view = Tk()
+    alert_view.title('confirm Alert !')
+    alert_view.geometry('300x100+200+10')
+    alert_view.resizable(0, 0)
+
+
+def printAll():
+    alert()
+
+
 def show_password():
     password_txt.configure(show='#')
     check_1.configure(command=hide_1)
@@ -79,7 +90,7 @@ confirm_password_txt = Entry(windows, width=40, borderwidth=2)
 confirm_password_txt.place(x=200, y=340)
 
 save_butt0n = Button(windows, text='Save', width=11, borderwidth=5, height=1, bg='#66ff99', fg='blue', cursor='hand2',
-                     border=2, font=('#ff3300', 16, 'bold'))
+                     border=2, font=('#ff3300', 16, 'bold'), command=printAll)
 save_butt0n.place(x=210, y=500)
 
 # check button

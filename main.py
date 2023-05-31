@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+import pymysql
 
 from Student import Student
 
@@ -9,19 +10,22 @@ windows.geometry('540x640+200+10')
 windows.resizable(0, 0)
 
 
-def alert():
-    messagebox.showinfo('Confirmation', '                                   saved !                            ')
-    # alert_view = Tk()
-    # alert_view.title('confirm Alert !')
-    # alert_view.geometry('300x100+200+10')
-    # alert_view.resizable(0, 0)
+def alertError():
+    messagebox.showerror('Error !', 'text Entry is empty please insert values and press SAVE !')
 
 
-def printAll():
-    student = Student()
-    student.name = 'kamal'
-    print(student.name)
-    alert()
+def alertInfo():
+    messagebox.showinfo('Success !', 'registration successfully , you will again now !')
+
+
+def submit():
+    if password_txt.get() == '' and username_txt.get() == '':
+        alertError()
+    else:
+        db = pymysql.connect(host='local', user='root', password='80221474')
+        cur = db.cursor()
+
+        alertInfo()
 
 
 def show_password():
@@ -97,7 +101,7 @@ confirm_password_txt = Entry(windows, width=40, borderwidth=2)
 confirm_password_txt.place(x=200, y=340)
 
 save_butt0n = Button(windows, text='Save', width=11, borderwidth=5, height=1, bg='#4287f5', fg='blue', cursor='hand2',
-                     border=2, font=('#ff3300', 16, 'bold'), command=printAll)
+                     border=2, font=('#ff3300', 16, 'bold'), command=submit)
 save_butt0n.place(x=210, y=500)
 
 # check button
@@ -108,7 +112,7 @@ check_2 = Checkbutton(windows, text='show', bg='white')
 check_2.place(x=450, y=310)
 
 back_button = Button(windows, text='back <-', width=6, borderwidth=5, height=1, bg='#66ff99', fg='blue', cursor='hand2',
-                     border=2, font=('#ff3300', 8, 'bold'),command=printAll)
+                     border=2, font=('#ff3300', 8, 'bold'), command=submit)
 back_button.place(x=30, y=600)
 
 windows.mainloop()

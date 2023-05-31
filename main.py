@@ -22,10 +22,24 @@ def submit():
     if password_txt.get() == '' and username_txt.get() == '':
         alertError()
     else:
-        db = pymysql.connect(host='local', user='root', password='80221474')
+        db = pymysql.connect(host='local', user='root', password='80221474', database='sampleRegistration')
         cur = db.cursor()
 
+        cur.execute('use sampleRegistration')
+
+        query = 'insert into user(firstname, lastname, gmail, gender, country, username, password)' \
+                'values(%s,%s,%s,%s,%s,%s,%s)'
+
+        cur.execute(query, (
+        first_name_txt.get(), last_name_txt.get(), email_txt.get(), gender.getvar(), OM.get(), username_txt.get(),
+        password_txt.get()))
+        db.commit()
+        db.close()
         alertInfo()
+
+
+def backBtn():
+    messagebox.showwarning('warning !', 'this option is not developed !')
 
 
 def show_password():
@@ -39,7 +53,7 @@ def hide_1():
 
 
 OM = StringVar()
-country = ['srilanka', 'india', 'japan', 'koria']
+country = ['sri lanka', 'india', 'japan']
 OM.set('Select Country')
 
 frame = Frame(windows, width='610', height='640', bg='#4287f5', bd=8)
@@ -112,7 +126,7 @@ check_2 = Checkbutton(windows, text='show', bg='white')
 check_2.place(x=450, y=310)
 
 back_button = Button(windows, text='back <-', width=6, borderwidth=5, height=1, bg='#66ff99', fg='blue', cursor='hand2',
-                     border=2, font=('#ff3300', 8, 'bold'), command=submit)
+                     border=2, font=('#ff3300', 8, 'bold'), command=backBtn)
 back_button.place(x=30, y=600)
 
 windows.mainloop()

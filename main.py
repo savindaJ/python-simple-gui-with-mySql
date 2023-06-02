@@ -1,5 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
+
+import logIn as logIn
 import pymysql
 
 from Student import Student
@@ -8,6 +10,11 @@ windows = Tk()
 windows.title('registration form !')
 windows.geometry('540x640+200+10')
 windows.resizable(0, 0)
+
+
+def login():
+    st = Student()
+    st.logIn()
 
 
 def alertError():
@@ -24,18 +31,22 @@ def submit():
     else:
         db = pymysql.connect(host='local', user='root', password='80221474', database='sampleRegistration')
         cur = db.cursor()
+        try:
+            cur.execute('use sampleRegistration')
 
-        cur.execute('use sampleRegistration')
+            query = 'insert into user(firstname, lastname, gmail, gender, country, username, password)' \
+                    'values(%s,%s,%s,%s,%s,%s,%s)'
 
-        query = 'insert into user(firstname, lastname, gmail, gender, country, username, password)' \
-                'values(%s,%s,%s,%s,%s,%s,%s)'
+            cur.execute(query, (
+                first_name_txt.get(), last_name_txt.get(), email_txt.get(), gender.getvar(), OM.get(),
+                username_txt.get(),
+                password_txt.get()))
+            db.commit()
+            db.close()
+            alertInfo()
+        except:
 
-        cur.execute(query, (
-        first_name_txt.get(), last_name_txt.get(), email_txt.get(), gender.getvar(), OM.get(), username_txt.get(),
-        password_txt.get()))
-        db.commit()
-        db.close()
-        alertInfo()
+            alertError()
 
 
 def backBtn():
@@ -126,7 +137,10 @@ check_2 = Checkbutton(windows, text='show', bg='white')
 check_2.place(x=450, y=310)
 
 back_button = Button(windows, text='back <-', width=6, borderwidth=5, height=1, bg='#66ff99', fg='blue', cursor='hand2',
-                     border=2, font=('#ff3300', 8, 'bold'), command=backBtn)
+                     border=2, font=('#ff3300', 8, 'bold'), command=login)
 back_button.place(x=30, y=600)
+
+dev = Label(frame, text='Developed by savinda jayasekara !', fg='black', bg='#4287f5', font=('Calibre', 8))
+dev.place(x=350, y=610)
 
 windows.mainloop()

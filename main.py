@@ -1,10 +1,9 @@
 from tkinter import *
 from tkinter import messagebox
 
-import logIn as logIn
 import pymysql
 
-from Student import Student
+from LogInFace import Student
 
 windows = Tk()
 windows.title('registration form !')
@@ -15,6 +14,8 @@ windows.resizable(0, 0)
 def login():
     st = Student()
     st.logIn()
+    # import sys
+    # sys.exit()
 
 
 def alertError():
@@ -125,7 +126,7 @@ confirm_password.place(x=8, y=330)
 confirm_password_txt = Entry(windows, width=40, borderwidth=2)
 confirm_password_txt.place(x=200, y=340)
 
-save_butt0n = Button(windows, text='Save', width=11, borderwidth=5, height=1, bg='#4287f5', fg='blue', cursor='hand2',
+save_butt0n = Button(windows, text='Save', width=11, borderwidth=5, height=1, bg='#ffff99', fg='blue', cursor='hand2',
                      border=2, font=('#ff3300', 16, 'bold'), command=submit)
 save_butt0n.place(x=210, y=500)
 

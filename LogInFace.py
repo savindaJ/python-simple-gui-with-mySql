@@ -3,14 +3,15 @@ import string
 from tkinter import *
 
 
+def loginBtn():
+    print('log in')
+
+
 class Person:
     def __int__(self, name, age, address):
         self.name = name
         self.age = age
         self.address = address
-
-    def loginBtn(self):
-        print('log in')
 
     def logIn(self):
         windows = Tk()
@@ -38,7 +39,7 @@ class Person:
 
         save_butt0n = Button(windows, text='Save', width=4, borderwidth=5, height=1, bg='#ff80ff', fg='blue',
                              cursor='hand2',
-                             border=2, font=('#ff3300', 16, 'bold'), command=self.loginBtn)
+                             border=2, font=('#ff3300', 16, 'bold'), command=loginBtn)
         save_butt0n.place(x=310, y=150)
 
         windows.mainloop()
